@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Random Video Player</title>
+<style>
+body { background:black; color:white; text-align:center; }
+video { width: 90vw; height: 90vh; }
+button { font-size:18px; margin:10px; }
+</style>
+</head>
+<body>
+
+<video id="video" controls autoplay></video>
+<br>
+<button onclick="playRandom()">隨機播放</button>
+
+<script>
+const playlist = [
+  "https://eu-cdn02-prem.boomio-cdn.com/remote_control.php?time=1764745051&cv=d53fe4afba37c20f3b2435c092ef066c&lr=1271250&cv2=be4bbe90e91524ccdbccf02bd1c0b1ff&file=%2Fvideos%2F3838000%2F3838857%2F3838857_720p.mp4&cv3=7b148ffed7e5ddccd7d2456825ccfe56&cv4=9880f4d9348e268ede047b85a8ec97a0",
+  "https://eu-cdn09-prem.boomio-cdn.com/remote_control.php?time=1764745075&cv=07dc8a9472649a0df08e96bb228533df&lr=1003125&cv2=45c34756a30c8f9e76cd7e1d740d9f0f&file=%2Fvideos%2F3838000%2F3838753%2F3838753_720p.mp4&cv3=7b148ffed7e5ddccd7d2456825ccfe56&cv4=475a24fa9ba431ee9c609994bdab23b6"
+];
+
+const video = document.getElementById('video');
+
+function playRandom() {
+  const i = Math.floor(Math.random() * playlist.length);
+  video.src = playlist[i];
+  video.play();
+}
+
+video.onended = playRandom;
+playRandom();
+</script>
+
+</body>
+</html>
